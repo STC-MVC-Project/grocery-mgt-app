@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #007bff;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+nav {
+    background: #343a40;
+    color: white;
+    padding: 0.5em;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 1em;
+    text-decoration: none;
+}
+main {
+    padding: 2em;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+table th, table td {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+footer {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+input, button {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    width: 100%;
+}
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+}
+button:hover {
+    background: #218838;
+}
