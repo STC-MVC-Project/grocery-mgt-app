@@ -1,58 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+    font-family: 'Poppins', sans-serif;
+    background: #e6e0f8; /* very light lavender */
     margin: 0;
     padding: 0;
+    color: #3a2e5b;
+    min-height: 100vh;
 }
+
+/* HEADER */
 header {
-    background: #007bff;
-    color: white;
-    padding: 1em;
+    background: linear-gradient(90deg, #6a5acd, #836dcf);
+    color: #fff;
+    padding: 2rem 1rem;
     text-align: center;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(106, 90, 205, 0.7);
+    user-select: none;
 }
-nav {
-    background: #343a40;
-    color: white;
-    padding: 0.5em;
-    text-align: center;
+
+/* NAVIGATION */
+.main-nav {
+    background: #5c4dbd; /* softer purple */
+    padding: 1rem 0;
+    box-shadow: 0 3px 10px rgba(92, 77, 189, 0.25);
 }
-nav a {
-    color: white;
-    margin: 0 1em;
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: #ddd9ff;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
+
+.main-nav a:hover,
+.main-nav a:focus {
+    background: #8379e6;
+    color: #fff;
+    outline: none;
+    box-shadow: 0 0 10px #8379e6;
+}
+
+.main-nav a.active {
+    background: #9370db;
+    color: white;
+    box-shadow: 0 0 12px rgba(147, 112, 219, 0.4);
+}
+
+/* MAIN CONTAINER */
 main {
-    padding: 2em;
+    max-width: 900px;
+    margin: 2rem auto 6rem;
+    padding: 1rem;
 }
+
+/* FORM CONTAINER */
+.form-container {
+    background: #f5f3fb; /* soft off-white lavender */
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(106, 90, 205, 0.1);
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+form legend {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #6a5acd;
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin: 1rem 0 0.3rem;
+    font-weight: 500;
+    color: #3a2e5b;
+}
+
+input, button {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin: 0.75rem 0;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(106, 90, 205, 0.07);
+    border: 2px solid transparent;
+    outline-offset: 4px;
+}
+
+input:focus {
+    border-color: #9370db;
+    box-shadow: 0 0 15px #9370db;
+    outline: none;
+    transform: scale(1.02);
+}
+
+button {
+    background: #9370db;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(147, 112, 219, 0.6);
+    min-width: 140px;
+    display: inline-block;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+button:hover,
+button:focus {
+    background: #6a5acd;
+    box-shadow: 0 6px 20px rgba(106, 90, 205, 0.8);
+    transform: scale(1.05);
+    outline: none;
+}
+
+/* ERROR MESSAGE */
+.error-message {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* TABLE STYLES */
 table {
     width: 100%;
-    border-collapse: collapse;
-    background: white;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    background: transparent;
 }
-table th, table td {
-    padding: 0.5em;
-    border: 1px solid #ccc;
+
+thead th {
+    background: #7b68ee;
+    color: white;
+    padding: 1rem;
+    border-radius: 12px 12px 0 0;
     text-align: left;
 }
-footer {
-    background: #007bff;
+
+tbody tr {
+    background: #f5f3fb; /* soft off-white lavender */
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.1);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(131, 121, 230, 0.3);
+}
+
+tbody td {
+    padding: 1rem;
+    font-size: 1rem;
+    color: #4a427d;
+    border-bottom: 1px solid #ddd6f7;
+}
+
+/* ACTION BUTTONS IN TABLE */
+.action-btn {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.action-btn.edit {
+    background-color: #9370db;
     color: white;
+}
+
+.action-btn.delete {
+    background-color: #d9534f;
+    color: white;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* EMPTY STATE MESSAGE */
+.empty-message {
     text-align: center;
-    padding: 1em;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #888;
+    background: #f5f3fb; /* soft off-white lavender */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* FOOTER */
+.app-footer {
+    background: linear-gradient(90deg, #5c4dbd, #836dcf);
+    color: #f4f1ff;
+    text-align: center;
+    padding: 2rem 1rem;
     position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -4px 15px rgba(92, 77, 189, 0.5);
+    font-size: 0.95rem;
+    z-index: 10;
 }
-input, button {
-    padding: 0.5em;
-    margin: 0.5em 0;
-    width: 100%;
+
+.app-footer .footer-content {
+    max-width: 900px;
+    margin: 0 auto;
 }
-button {
-    background: #28a745;
-    color: white;
-    border: none;
+
+.app-footer a {
+    color: #f4f1ff;
+    text-decoration: underline;
+    margin: 0 0.4rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
-button:hover {
-    background: #218838;
+
+.app-footer a:hover {
+    color: #e3d4ff;
+    text-shadow: 0 0 5px rgba(227, 212, 255, 0.6);
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 600px) {
+    .main-nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    table thead th {
+        font-size: 1rem;
+    }
+
+    table tbody td {
+        font-size: 0.9rem;
+    }
+
+    .form-container, main {
+        padding: 1rem;
+    }
 }
