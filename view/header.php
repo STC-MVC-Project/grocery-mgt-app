@@ -1,3 +1,9 @@
+<?php
+require_once './lib/flash.php'; // +
+$success = getFlash('success'); // +
+$error = getFlash('error'); // +
+   ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,5 +17,14 @@
     <header>
         <h1>🥦 Grocery Management System</h1>
     </header>
+    
+    <?php if ($success): ?>
+    <p style="color:green;"><?= $success ?></p>
+<?php endif; ?>
+<?php if ($error): ?>
+    <p style="color:red;"><?= $error ?></p>
+<?php endif; ?>
+
 
     <?php include 'nav.php'; ?>
+
