@@ -1,5 +1,7 @@
 <?php
 require_once './model/Grocery.php';
+require_once './auth.php'; // +
+require_once './lib/flash.php'; // +
 
 class GroceryController {
     private $model;
@@ -51,6 +53,52 @@ class GroceryController {
                 $groceries = $this->model->getAllGroceries();
                 include './view/dashboard.php';
                 break;
+                
+        case 'login': // +
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') { // +
+        $username = $_POST['username']; // +
+        $password = $_POST['password']; // +
+        $remember = isset($_POST['remember']); // +
+        if (loginUser($username, $password, $remember)) { // +
+            header('Location: index.php'); // +
+        } else { // +
+            setFlash('error', 'Invalid username or password.'); // +
+            include './view/login.php'; // +
+        } // +
+    } else { include './view/login.php'; } // +
+    break; // +
+
+case 'register': // +
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') { // +
+        $username = $_POST['username']; // +
+        $password = $_POST['password']; // +
+        $confirm = $_POST['confirm']; // +
+
+        if (empty($username) || empty($password)) { $error = "All fields are required."; } // +
+        elseif ($password !== $confirm) { $error = "Passwords do not match."; } // +
+        else { // +
+            require './db.php'; // +
+            $stmt = $db->prepare("SELECT id FROM users WHERE username = ?"); // +
+            $stmt->execute([$username]); // +
+            if ($stmt->fetch()) { $error = "Username already exists."; } // +
+            else { // +
+                $hashed = password_hash($password, PASSWORD_DEFAULT); // +
+                $insert = $db->prepare("INSERT INTO users (username, password) VALUES (?, ?)"); // +
+                $insert->execute([$username, $hashed]); // +
+                setFlash('success', 'Registration successful. You can now log in.'); // +
+                header('Location: index.php?action=login'); exit(); // +
+            } // +
+        } // +
+        include './view/register.php'; // +
+    } else {
+        include './view/register.php'; // +
+    }
+    break; // +
+
+case 'logout': // +
+    logoutUser(); // +
+    header('Location: index.php'); // +
+    break; // +    
         }
     }
 }
