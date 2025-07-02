@@ -1,10 +1,11 @@
 <?php 
 $activePage = 'add';
 include 'header.php'; 
+include 'nav.php';
 ?>
 <main>
     <section class="form-container">
-        <h2>Add Grocery Item</h2>
+        <h2>Custom Grocery Item</h2>
 
         <?php if (!empty($error)) : ?>
             <div class="error-message"><?= htmlspecialchars($error) ?></div>
@@ -26,4 +27,3 @@ include 'header.php';
     </section>
 </main>
 <?php include 'footer.php'; ?>
-
