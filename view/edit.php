@@ -1,6 +1,7 @@
 <?php 
 $activePage = 'edit';
 include 'header.php'; 
+
 ?>
 <main>
     <section class="form-container">
